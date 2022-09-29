@@ -150,7 +150,16 @@ static const pwm_conf_t pwm_config[] = {
 static const spi_conf_t spi_config[] = {
     {
         .dev            = SPI1,
-        .mosi_pin       = GPIO_PIN(PORT_A, 7),
+        /* PA7 is the default MOSI pin, as it is required for compatibility with
+         * Arduino(ish) shields. Sadly, it is also connected to the RMII_DV of
+         * Ethernet PHY. We work around this by remapping the MOSI to PB5 when
+         * the on-board Ethernet PHY is used.
+         */
+#ifdef MODULE_PERIPH_ETH
+        .mosi_pin = GPIO_PIN(PORT_B, 5),
+#else
+        .mosi_pin = GPIO_PIN(PORT_A, 7),
+#endif
         .miso_pin       = GPIO_PIN(PORT_A, 6),
         .sclk_pin       = GPIO_PIN(PORT_A, 5),
         .cs_pin         = GPIO_UNDEF,
