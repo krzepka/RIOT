@@ -37,6 +37,14 @@ ifneq (,$(filter congure_%,$(USEMODULE)))
   USEMODULE += congure
 endif
 
+ifneq (,$(filter congure_abe,$(USEMODULE)))
+  USEMODULE += congure_reno_methods
+endif
+
+ifneq (,$(filter congure_quic,$(USEMODULE)))
+  USEMODULE += ztimer_msec
+endif
+
 ifneq (,$(filter congure_test,$(USEMODULE)))
   USEMODULE += fmt
 endif
@@ -47,6 +55,14 @@ endif
 
 ifneq (,$(filter congure_reno_methods,$(USEMODULE)))
   USEMODULE += seq
+endif
+
+ifneq (,$(filter crc16_fast,$(USEMODULE)))
+  USEMODULE += checksum
+endif
+
+ifneq (,$(filter crc32_fast,$(USEMODULE)))
+  USEMODULE += checksum
 endif
 
 ifneq (,$(filter eepreg,$(USEMODULE)))
@@ -897,6 +913,10 @@ ifneq (,$(filter suit_%,$(USEMODULE)))
   USEMODULE += suit
 endif
 
+ifneq (,$(filter tiny_strerror_as_strerror,$(USEMODULE)))
+  USEMODULE += tiny_strerror
+endif
+
 # include ztimer dependencies
 ifneq (,$(filter ztimer ztimer_% %ztimer,$(USEMODULE)))
   include $(RIOTBASE)/sys/ztimer/Makefile.dep
@@ -976,6 +996,10 @@ endif
 
 ifneq (,$(filter rust_riotmodules,$(USEMODULE)))
   include $(RIOTBASE)/sys/rust_riotmodules/Makefile.dep
+endif
+
+ifneq (,$(filter auto_init%,$(USEMODULE)))
+  USEMODULE += preprocessor_successor
 endif
 
 include $(RIOTBASE)/sys/test_utils/Makefile.dep

@@ -64,19 +64,28 @@ rsource "Kconfig.picolibc"
 
 endmenu # Libc
 
-rsource "log/Kconfig"
+
+rsource "Kconfig.stdio"
+choice LOG
+    bool "Logging system override"
+    optional
+    #modules log_color and log_printfnoformat describe their options
+endchoice
+
+rsource "log_color/Kconfig"
+rsource "log_printfnoformat/Kconfig"
 rsource "luid/Kconfig"
 rsource "malloc_thread_safe/Kconfig"
 rsource "matstat/Kconfig"
 rsource "memarray/Kconfig"
 rsource "mineplex/Kconfig"
 rsource "net/Kconfig"
-rsource "Kconfig.stdio"
 rsource "od/Kconfig"
-rsource "posix/Kconfig"
 rsource "oneway-malloc/Kconfig"
 rsource "phydat/Kconfig"
 rsource "pm_layered/Kconfig"
+rsource "posix/Kconfig"
+rsource "preprocessor/Kconfig"
 rsource "progress_bar/Kconfig"
 rsource "ps/Kconfig"
 rsource "random/Kconfig"
@@ -90,6 +99,7 @@ rsource "seq/Kconfig"
 rsource "shell/Kconfig"
 rsource "test_utils/Kconfig"
 rsource "timex/Kconfig"
+rsource "tiny_strerror/Kconfig"
 rsource "trace/Kconfig"
 rsource "tsrb/Kconfig"
 rsource "uri_parser/Kconfig"
@@ -122,5 +132,11 @@ config MODULE_SYS
     depends on TEST_KCONFIG
     help
         System module, it serves to pull in all the rest of system modules.
+
+config MODULE_LOG
+    bool
+    help
+        Modules that override the default log implementation should select this.
+        For more information see core/include/log.h.
 
 endmenu # System

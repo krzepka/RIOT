@@ -156,16 +156,7 @@ config MODULE_PERIPH_INIT_TEMPERATURE
     depends on MODULE_PERIPH_TEMPERATURE
 
 rsource "Kconfig.uart"
-
-config MODULE_PERIPH_USBDEV
-    bool "USBDEV peripheral driver"
-    depends on HAS_PERIPH_USBDEV
-    select MODULE_PERIPH_COMMON
-
-config MODULE_PERIPH_INIT_USBDEV
-    bool "Auto initialize USBDEV peripheral"
-    default y if MODULE_PERIPH_INIT
-    depends on MODULE_PERIPH_USBDEV
+rsource "Kconfig.usbdev"
 
 endif # TEST_KCONFIG
 

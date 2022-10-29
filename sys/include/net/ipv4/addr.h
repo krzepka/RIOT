@@ -58,6 +58,23 @@ static inline bool ipv4_addr_equal(const ipv4_addr_t *a, const ipv4_addr_t *b)
 }
 
 /**
+ * @brief   Check if @p addr is a multicast address.
+ *
+ * @see <a href="https://www.rfc-editor.org/rfc/rfc1112.html#section-4">
+ *          RFC 1112, section 4
+ *      </a>
+ *
+ * @param[in] addr  An IPv4 address.
+ *
+ * @return  true, if @p addr is multicast address,
+ * @return  false, otherwise.
+ */
+static inline bool ipv4_addr_is_multicast(const ipv4_addr_t *addr)
+{
+    return (addr->u8[0] >= 0xE0 && addr->u8[0] <= 0xEF);
+}
+
+/**
  * @brief   Converts an IPv4 address to its string representation
  *
  * @param[out] result       The resulting string representation of at least
@@ -100,6 +117,13 @@ ipv4_addr_t *ipv4_addr_from_str(ipv4_addr_t *result, const char *addr);
  */
 ipv4_addr_t *ipv4_addr_from_buf(ipv4_addr_t *result, const char *addr,
                                 size_t addr_len);
+
+/**
+ * @brief Print IPv4 address to stdout
+ *
+ * @param[in]   addr  Pointer to ipv6_addr_t to print
+ */
+void ipv4_addr_print(const ipv4_addr_t *addr);
 
 #ifdef __cplusplus
 }

@@ -104,9 +104,6 @@ endif
 ifneq (,$(filter l2util,$(USEMODULE)))
   DIRS += net/link_layer/l2util
 endif
-ifneq (,$(filter log_%,$(USEMODULE)))
-  DIRS += log
-endif
 ifneq (,$(filter nanocoap,$(USEMODULE)))
   DIRS += net/application_layer/nanocoap
 endif
@@ -176,6 +173,9 @@ endif
 ifneq (,$(filter pthread,$(USEMODULE)))
   DIRS += posix/pthread
 endif
+ifneq (,$(filter preprocessor_%,$(USEMODULE)))
+  DIRS += preprocessor
+endif
 ifneq (,$(filter routing,$(USEMODULE)))
   DIRS += net/routing
 endif
@@ -208,6 +208,9 @@ ifneq (,$(filter test_utils_print_stack_usage,$(USEMODULE)))
 endif
 ifneq (,$(filter test_utils_result_output,$(USEMODULE)))
   DIRS += test_utils/result_output
+endif
+ifneq (,$(filter tiny_strerror,$(USEMODULE)))
+  DIRS += tiny_strerror
 endif
 ifneq (,$(filter udp,$(USEMODULE)))
   DIRS += net/transport_layer/udp

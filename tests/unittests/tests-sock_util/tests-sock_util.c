@@ -47,13 +47,12 @@
 #define TEST_URL_DNS_HOSTPART       "test.local"
 #define TEST_URL_INVALID            "[2001:db8::1]://local"
 #define TEST_URL_INVALID2           "[2001:db8::1]/local"
-#define TEST_URL_LONG_HOSTPORT      "http://veryveryvery.long.hostname.that." \
+#define TEST_URL_LONG_HOSTPORT      "https://veryveryvery.long.hostname.that." \
                                     "doesnt.fit.inside.sixtyfour.characters." \
                                     "of.buffer.space/localpart"
 #define TEST_URL_LONG_URLPATH       "http://shorthostname/very/very/long/ " \
                                     "path/that/doesnt/fit/inside/sixtyfour/" \
                                     "chars/of/buffer/space"
-
 
 static char addr[CONFIG_SOCK_URLPATH_MAXLEN];
 static char urlpath[CONFIG_SOCK_URLPATH_MAXLEN];
@@ -160,7 +159,6 @@ static void test_sock_util_urlsplit__null_path_buffer(void)
     TEST_ASSERT_EQUAL_STRING(TEST_URL_LOCALPART, (char*)urlpath);
 }
 
-
 static void test_sock_util_str2ep__ipv6_noport(void)
 {
     sock_udp_ep_t ep;
@@ -198,7 +196,6 @@ static void test_sock_util_str2ep__ipv4_bracketed(void)
     const char * test_str =  "[10.0.0.1]:53";
     TEST_ASSERT_EQUAL_INT(-EINVAL, sock_udp_str2ep(&ep, test_str));
 }
-
 
 static void test_sock_util_str2ep__invalid_bracket_missing(void)
 {

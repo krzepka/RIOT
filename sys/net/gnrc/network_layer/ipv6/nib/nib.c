@@ -136,6 +136,7 @@ void gnrc_ipv6_nib_iface_up(gnrc_netif_t *netif)
     netif->ipv6.rs_sent = 0;
 #endif  /* CONFIG_GNRC_IPV6_NIB_6LN */
     netif->ipv6.na_sent = 0;
+    _auto_configure_addr(netif, &ipv6_addr_link_local_prefix, 64U);
     if (!(gnrc_netif_is_rtr_adv(netif)) ||
         (gnrc_netif_is_6ln(netif) && !gnrc_netif_is_6lbr(netif))) {
         uint32_t next_rs_time = random_uint32_range(0, NDP_MAX_RS_MS_DELAY);
@@ -175,6 +176,12 @@ void gnrc_ipv6_nib_iface_down(gnrc_netif_t *netif, bool send_final_ra)
 #else
     (void)send_final_ra;
 #endif
+    for (unsigned i = 0; i < CONFIG_GNRC_NETIF_IPV6_ADDRS_NUMOF; i++) {
+        if (ipv6_addr_is_link_local(&netif->ipv6.addrs[i])) {
+            /* link-local address might change on reconnect */
+            gnrc_netif_ipv6_addr_remove_internal(netif, &netif->ipv6.addrs[i]);
+        }
+    }
 
     gnrc_netif_release(netif);
 }
@@ -201,7 +208,6 @@ void gnrc_ipv6_nib_init_iface(gnrc_netif_t *netif)
         return;
     }
     _add_static_lladdr(netif);
-    _auto_configure_addr(netif, &ipv6_addr_link_local_prefix, 64U);
 
     gnrc_netif_release(netif);
 }
@@ -701,8 +707,8 @@ static void _handle_rtr_adv(gnrc_netif_t *netif, const ipv6_hdr_t *ipv6,
         }
         /* UINT16_MAX * 60 * 1000 < UINT32_MAX so there are no overflows */
         next_timeout = _min(next_timeout,
-                            byteorder_ntohs(abro->ltime) * SEC_PER_MIN *
-                            MS_PER_SEC);
+                            MS_PER_SEC * SEC_PER_MIN *
+                            gnrc_sixlowpan_nd_opt_get_ltime(abro));
     }
 #if !IS_ACTIVE(CONFIG_GNRC_IPV6_NIB_6LBR)
     else if (gnrc_netif_is_6lr(netif)) {
@@ -1306,6 +1312,7 @@ static bool _resolve_addr(const ipv6_addr_t *dst, gnrc_netif_t *netif,
             entry = _nib_nc_add(dst, (netif != NULL) ? netif->pid : 0,
                                 GNRC_IPV6_NIB_NC_INFO_NUD_STATE_INCOMPLETE);
             if (entry == NULL) {
+                DEBUG("nib: can't resolve address, neighbor cache full\n");
                 gnrc_pktbuf_release(pkt);
                 return false;
             }

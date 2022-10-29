@@ -1,9 +1,3 @@
-boards/6lowpan\-clicker/include/periph_conf\.h:[0-9]+: warning: Member CLOCK_CORECLOCK \(macro definition\) of file periph_conf\.h is not documented\.
-boards/6lowpan\-clicker/include/periph_conf\.h:[0-9]+: warning: Member TIMER_0_CHANNELS \(macro definition\) of file periph_conf\.h is not documented\.
-boards/6lowpan\-clicker/include/periph_conf\.h:[0-9]+: warning: Member TIMER_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
-boards/6lowpan\-clicker/include/periph_conf\.h:[0-9]+: warning: Member UART_0_ISR \(macro definition\) of file periph_conf\.h is not documented\.
-boards/6lowpan\-clicker/include/periph_conf\.h:[0-9]+: warning: Member UART_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
-boards/6lowpan\-clicker/include/periph_conf\.h:[0-9]+: warning: Member uart_config\[\] \(variable\) of file periph_conf\.h is not documented\.
 boards/acd52832/include/board\.h:[0-9]+: warning: Member LED_PORT \(macro definition\) of file board\.h is not documented\.
 boards/acd52832/include/periph_conf\.h:[0-9]+: warning: Member CLOCK_CORECLOCK \(macro definition\) of file periph_conf\.h is not documented\.
 boards/acd52832/include/periph_conf\.h:[0-9]+: warning: Member I2C_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
@@ -3213,12 +3207,6 @@ boards/phynode\-kw41z/include/periph_conf\.h:[0-9]+: warning: Member ADC_REF_SET
 boards/phynode\-kw41z/include/periph_conf\.h:[0-9]+: warning: Member SPI_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
 boards/phynode\-kw41z/include/periph_conf\.h:[0-9]+: warning: Member adc_config\[\] \(variable\) of file periph_conf\.h is not documented\.
 boards/phynode\-kw41z/include/periph_conf\.h:[0-9]+: warning: Member spi_config\[\] \(variable\) of file periph_conf\.h is not documented\.
-boards/pic32\-wifire/include/periph_conf\.h:[0-9]+: warning: Member CLOCK_CORECLOCK \(macro definition\) of file periph_conf\.h is not documented\.
-boards/pic32\-wifire/include/periph_conf\.h:[0-9]+: warning: Member TIMER_0_CHANNELS \(macro definition\) of file periph_conf\.h is not documented\.
-boards/pic32\-wifire/include/periph_conf\.h:[0-9]+: warning: Member TIMER_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
-boards/pic32\-wifire/include/periph_conf\.h:[0-9]+: warning: Member UART_0_ISR \(macro definition\) of file periph_conf\.h is not documented\.
-boards/pic32\-wifire/include/periph_conf\.h:[0-9]+: warning: Member UART_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
-boards/pic32\-wifire/include/periph_conf\.h:[0-9]+: warning: Member uart_config\[\] \(variable\) of file periph_conf\.h is not documented\.
 boards/pinetime/include/board\.h:[0-9]+: warning: Member BACKLIGHT_MASK \(macro definition\) of file board\.h is not documented\.
 boards/pinetime/include/board\.h:[0-9]+: warning: Member BACKLIGHT_OFF \(macro definition\) of file board\.h is not documented\.
 boards/pinetime/include/board\.h:[0-9]+: warning: Member BACKLIGHT_ON \(macro definition\) of file board\.h is not documented\.
@@ -6007,11 +5995,7 @@ cpu/lpc23xx/include/periph_cpu\.h:[0-9]+: warning: Member PERIPH_SPI_NEEDS_TRANS
 cpu/lpc23xx/include/periph_cpu\.h:[0-9]+: warning: Member PERIPH_SPI_NEEDS_TRANSFER_REG \(macro definition\) of file periph_cpu\.h is not documented\.
 cpu/lpc23xx/include/periph_cpu\.h:[0-9]+: warning: Member PERIPH_SPI_NEEDS_TRANSFER_REGS \(macro definition\) of file periph_cpu\.h is not documented\.
 cpu/lpc23xx/include/periph_cpu\.h:[0-9]+: warning: Member PM_NUM_MODES \(macro definition\) of file periph_cpu\.h is not documented\.
-cpu/mips32r2_common/include/cpu\.h:[0-9]+: warning: Member BITARITHM_HAS_CLZ \(macro definition\) of group cpu_mips32r2_common is not documented\.
-cpu/mips_pic32mx/include/cpu_conf\.h:[0-9]+: warning: Member THREAD_STACKSIZE_DEFAULT \(macro definition\) of group cpu_mips_pic32mx is not documented\.
-cpu/mips_pic32mx/include/cpu_conf\.h:[0-9]+: warning: Member THREAD_STACKSIZE_IDLE \(macro definition\) of group cpu_mips_pic32mx is not documented\.
-cpu/mips_pic32mz/include/cpu_conf\.h:[0-9]+: warning: Member THREAD_STACKSIZE_DEFAULT \(macro definition\) of group cpu_mips_pic32mz is not documented\.
-cpu/mips_pic32mz/include/cpu_conf\.h:[0-9]+: warning: Member THREAD_STACKSIZE_IDLE \(macro definition\) of group cpu_mips_pic32mz is not documented\.
+cpu/lpc23xx/include/periph_cpu\.h:[0-9]+: warning: end of file with unbalanced grouping commands
 cpu/msp430_common/include/cpu_conf\.h:[0-9]+: warning: Member CONFIG_GNRC_PKTBUF_SIZE \(macro definition\) of file cpu_conf\.h is not documented\.
 cpu/msp430_common/include/cpu_conf\.h:[0-9]+: warning: Member FLASHPAGE_SIZE \(macro definition\) of file cpu_conf\.h is not documented\.
 cpu/msp430_common/include/cpu_conf\.h:[0-9]+: warning: Member FLASHPAGE_WRITE_BLOCK_ALIGNMENT \(macro definition\) of file cpu_conf\.h is not documented\.
@@ -13108,3 +13092,44 @@ boards/esp32\-ttgo\-t\-beam/doc\.txt:[0-9]+: warning: unable to resolve referenc
 boards/esp32\-wemos\-lolin\-d32\-pro/doc\.txt:[0-9]+: warning: explicit link request to 'esp32_wemos_lolin_d32_pro_optional_hardware' could not be resolved
 drivers/include/xbee\.h:[0-9]+: warning: found documented return type for xbee_setup that does not return anything
 boards/nrf52840dongle/doc\.txt:[0-9]+: warning: unable to resolve reference to 'nrf52840dongle_flash' for \\ref command
+boards/sltb009a/include/board\.h:[0-9]+: warning: Member XTIMER_[A-Z]+ \(macro definition\) of file board\.h is not documented.
+boards/sltb009a/include/board\.h:[0-9]+: warning: Member VCOM_EN_PIN \(macro definition\) of file board\.h is not documented.
+boards/sltb009a/include/board\.h:[0-9]+: warning: Member PB[0-1]_PIN \(macro definition) of file board\.h is not documented.
+boards/sltb009a/include/board\.h:[0-9]+: warning: Member LED[0-1][RGB]_PIN \(macro definition) of file board\.h is not documented.
+boards/sltb009a/include/board\.h:[0-9]+: warning: Member CORETEMP_ADC \(macro definition\) of file board\.h is not
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member CLOCK_[A-Z_]+ \(macro definition) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member ADC_[A-Z_]+ \(macro definition) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member adc_config\[\] \(variable) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member adc_channel_config\[\] \(variable) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member I2C_[A-Z0-9_]+ \(macro definition) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member i2c_config\[\] \(variable) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member RTT_FREQUENCY \(macro definition) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member SPI_NUMOF \(macro definition) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member spi_config\[\] \(variable) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member TIMER_[A-Z0-9_]+ \(macro definition) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member timer_config\[\] \(variable) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member UART_[A-Z0-9_]+ \(macro definition) of file periph_conf\.h is not documented.
+boards/sltb009a/include/periph_conf\.h:[0-9]+: warning: Member uart_config\[\] \(variable) of file periph_conf\.h is not documented.
+boards/xg23\-pk6068a/include/board\.h:[0-9]+: warning: Member CONFIG_ZTIMER_[A-Z_]+ \(macro definition\) of file board\.h is not documented\.
+boards/xg23\-pk6068a/include/board\.h:[0-9]+: warning: Member VCOM_[A-Z_]+ \(macro definition\) of file board\.h is not documented\.
+boards/xg23\-pk6068a/include/board\.h:[0-9]+: warning: Member PB[0-1]_PIN \(macro definition\) of file board\.h is not documented\.
+boards/xg23\-pk6068a/include/board\.h:[0-9]+: warning: Member DISP_[A-Z_]+ \(macro definition\) of file board\.h is not documented\.
+boards/xg23\-pk6068a/include/board\.h:[0-9]+: warning: Member FLASH_[A-Z_]+ \(macro definition\) of file board\.h is not documented\.
+boards/xg23\-pk6068a/include/board\.h:[0-9]+: warning: Member SI70[A-Z0-9_]+ \(macro definition\) of file board\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member HFXO_FREQ \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member CMU_HFXOINIT \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member LFXO_FREQ \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member CMU_LFXOINIT \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member CLK_MUX_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member CLK_DIV_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member clk_mux_config\[\] \(variable\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member clk_div_config\[\] \(variable\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member I2C_[0-9A-Z_]+ \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member i2c_config\[\] \(variable\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member SPI_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member spi_config\[\] \(variable\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member TIMER_[0-9A-Z_]+ \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member timer_config\[\] \(variable\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member UART_0_ISR_RX \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member UART_NUMOF \(macro definition\) of file periph_conf\.h is not documented\.
+boards/xg23\-pk6068a/include/periph_conf\.h:[0-9]+: warning: Member uart_config\[\] \(variable\) of file periph_conf\.h is not documented\.
