@@ -849,6 +849,9 @@ static wifi_config_t wifi_config_ap = {
         .max_connection = 0,                 /* don't allow connections */
         .beacon_interval = 60000,            /* send beacon only every 60 s */
 #endif
+#ifdef ESP_WIFI_CHANNEL
+        .channel = (uint8_t)ESP_WIFI_CHANNEL,
+#endif
     }
 };
 #endif /* (defined(MCU_ESP8266) && !defined(MODULE_ESP_NOW)) || defined(MODULE_ESP_WIFI_AP) */
