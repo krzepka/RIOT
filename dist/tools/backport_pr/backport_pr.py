@@ -224,7 +224,7 @@ def main():
             sys.exit(5)
     print(f"Backport based on branch {release_fullname}")
 
-    repo = git.Repo(args.gitdir)
+    repo = git.Repo(args.gitdir, search_parent_directories=True)
     # Fetch current upstream
     upstream_remote = _get_upstream(repo)
     if not upstream_remote:
@@ -240,7 +240,7 @@ def main():
     if new_branch in repo.branches:
         print(f"ERROR: Branch {new_branch} already exists")
         sys.exit(1)
-    worktree_dir = os.path.join(args.gitdir, WORKTREE_SUBDIR)
+    worktree_dir = os.path.join(repo.working_dir, WORKTREE_SUBDIR)
     repo.git.worktree(
         "add",
         "-b",
