@@ -1,3 +1,4 @@
+BOARD ?= samr21-xpro
 include ../Makefile.tests_common
 
 USB_VID ?= $(USB_VID_TESTING)
@@ -9,5 +10,3 @@ USEMODULE += tinyusb_class_msc
 USEMODULE += tinyusb_device
 
 include $(RIOTBASE)/Makefile.include
-
-INCLUDES += -I$(APPDIR)
