@@ -47,6 +47,9 @@ def filters_match(filters, tty):
     """
 
     for key, regex in filters:
+        if tty[key] is None:
+            return False
+
         if not regex.match(tty[key]):
             return False
 
@@ -173,7 +176,7 @@ def generate_filters(args):
     Generate filters for use in the filters_match function from the command
     line arguments
     """
-    result = list()
+    result = []
     if args.serial is not None:
         result.append(("serial", re.compile(r"^" + re.escape(args.serial)
                        + r"$")))
@@ -221,6 +224,9 @@ def print_ttys(args):
             ttys = [most_recent]
         else:
             ttys = []
+
+    if len(ttys) == 0:
+        sys.exit(1)
 
     print_results(args, ttys)
 

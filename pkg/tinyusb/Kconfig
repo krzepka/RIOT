@@ -208,7 +208,7 @@ config TUSBD_FS_EP_SIZE
     default 64
 
 config TUSBD_HS_EP_SIZE
-    int "Device endpoint Size in High-Speed mode [byte]"
+    int "Device endpoint size in High-Speed mode [byte]"
     default 512
 
 config TUSBD_USE_CUSTOM_DESC
@@ -226,3 +226,5 @@ config TUSBD_USE_CUSTOM_DESC
 
 endif # MODULE_TINYUSB_DEVICE
 endif # PACKAGE_TINYUSB
+
+rsource "cdc_acm_stdio/Kconfig"

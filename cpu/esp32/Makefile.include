@@ -23,6 +23,7 @@ else ifneq (,$(filter esp32s2,$(CPU_FAM)))
 else
   $(error Unkwnown ESP32x SoC variant (family))
 endif
+FLASHFILE_POS ?= 0x10000
 
 ESPTOOL ?= $(RIOTTOOLS)/esptools/esptool_v3.2.py
 
@@ -151,6 +152,19 @@ else ifeq (120m,$(FLASH_FREQ))
   CFLAGS += -DCONFIG_ESPTOOLPY_FLASHFREQ_120M
 endif
 
+#extend CFLAGS by the corresponding FLASH_SIZE
+ifeq (1,$(FLASH_SIZE))
+  CFLAGS += -DCONFIG_ESPTOOLPY_FLASHSIZE_1MB
+else ifeq (2,$(FLASH_SIZE))
+  CFLAGS += -DCONFIG_ESPTOOLPY_FLASHSIZE_2MB
+else ifeq (4,$(FLASH_SIZE))
+  CFLAGS += -DCONFIG_ESPTOOLPY_FLASHSIZE_4MB
+else ifeq (8,$(FLASH_SIZE))
+  CFLAGS += -DCONFIG_ESPTOOLPY_FLASHSIZE_8MB
+else ifeq (16,$(FLASH_SIZE))
+  CFLAGS += -DCONFIG_ESPTOOLPY_FLASHSIZE_16MB
+endif
+
 # shortcuts used by ESP-IDF
 CFLAGS += -Dasm=__asm
 CFLAGS += -Dtypeof=__typeof__
@@ -168,12 +182,8 @@ endif
 
 LINKFLAGS += -L$(RIOTCPU)/$(CPU)/ld/$(CPU_FAM)/
 
-ifneq (,$(filter esp32_sdk_lib_bt_esp32,$(USEPKG)))
-  LINKFLAGS += -T$(RIOTCPU)/$(CPU)/ld/$(CPU_FAM)/memory_bt.ld
-else
-  LINKFLAGS += -T$(RIOTCPU)/$(CPU)/ld/$(CPU_FAM)/memory.ld
-endif
-LINKFLAGS += -T$(RIOTCPU)/$(CPU)/ld/$(CPU_FAM)/sections.ld
+LINKFLAGS += -T$(BINDIR)/memory.ld
+LINKFLAGS += -T$(BINDIR)/sections.ld
 
 LINKFLAGS += -T$(ESP32_SDK_DIR)/components/soc/$(CPU_FAM)/ld/$(CPU_FAM).peripherals.ld
 LINKFLAGS += -T$(ESP32_SDK_DIR)/components/esp_rom/$(CPU_FAM)/ld/$(CPU_FAM).rom.api.ld
@@ -244,11 +254,21 @@ ifneq (,$(filter esp_jtag,$(USEMODULE)))
     -c 'flash write_image erase "$(BOOTLOADER_BIN)" $(BOOTLOADER_POS) bin' \
     -c 'echo "Installing partition table at $(PARTITION_POS)"' \
     -c 'flash write_image erase "$(BINDIR)/partitions.bin" $(PARTITION_POS) bin'
-  IMAGE_OFFSET = 0x10000
+  IMAGE_OFFSET = $(FLASHFILE_POS)
   # Flash checksumming not supported on xtensa
   OPENOCD_SKIP_VERIFY = yes
   # Without resets debug target fails with 'Target not examined yet'
   OPENOCD_DBG_EXTRA_CMD += -c 'reset halt'
 endif
+
+LD_SCRIPTS += $(BINDIR)/memory.ld $(BINDIR)/sections.ld
+
+$(BINDIR)/memory.ld: $(RIOTCPU)/$(CPU)/ld/$(CPU_FAM)/memory.ld.in \
+                     $(BINDIR)/riotbuild/riotbuild.h pkg-prepare
+	$(Q)$(CC) -DLD_FILE_GEN $(INCLUDES) -include '$(BINDIR)/riotbuild/riotbuild.h' \
+				-I$(RIOTCPU)/$(CPU)/ld -P -x c -E $< -o $@
+$(BINDIR)/sections.ld: $(RIOTCPU)/$(CPU)/ld/$(CPU_FAM)/sections.ld.in \
+                       $(BINDIR)/riotbuild/riotbuild.h pkg-prepare
+	$(Q)$(CC) -DLD_FILE_GEN -include '$(BINDIR)/riotbuild/riotbuild.h' -C -P -x c -E $< -o $@
 
 $(BOOTLOADER_BIN):

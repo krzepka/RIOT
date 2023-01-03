@@ -7266,7 +7266,6 @@ drivers/ds18/include/ds18_params\.h:[0-9]+: warning: Member DS18_PARAMS_DEFAULT 
 drivers/ds18/include/ds18_params\.h:[0-9]+: warning: Member DS18_PARAM_PULL \(macro definition\) of file ds18_params\.h is not documented\.
 drivers/ds3231/include/ds3231_params\.h:[0-9]+: warning: Member DS3231_PARAMS \(macro definition\) of file ds3231_params\.h is not documented\.
 drivers/ds3231/include/ds3231_params\.h:[0-9]+: warning: Member DS3231_PARAM_I2C \(macro definition\) of file ds3231_params\.h is not documented\.
-drivers/ds3231/include/ds3231_params\.h:[0-9]+: warning: Member DS3231_PARAM_INT_PIN \(macro definition\) of file ds3231_params\.h is not documented\.
 drivers/ds3231/include/ds3231_params\.h:[0-9]+: warning: Member DS3231_PARAM_OPT \(macro definition\) of file ds3231_params\.h is not documented\.
 drivers/ds3234/include/ds3234_params\.h:[0-9]+: warning: Member DS3234_PARAMS \(macro definition\) of file ds3234_params\.h is not documented\.
 drivers/ds3234/include/ds3234_params\.h:[0-9]+: warning: Member DS3234_PARAM_CLK \(macro definition\) of file ds3234_params\.h is not documented\.
@@ -7964,6 +7963,7 @@ drivers/include/at86rf215\.h:[0-9]+: warning: Member at86rf215_clko_cur_t \(enum
 drivers/include/at86rf215\.h:[0-9]+: warning: Member at86rf215_clko_freq_t \(enumeration\) of group drivers_at86rf215 is not documented\.
 drivers/include/at86rf215\.h:[0-9]+: warning: Member at86rf215_state_t \(enumeration\) of group drivers_at86rf215 is not documented\.
 drivers/include/at86rf2xx\.h:[0-9]+: warning: Member AT86RF2XX_DEFAULT_CHANNEL \(macro definition\) of group drivers_at86rf2xx is not documented\.
+drivers/include/at86rf2xx\.h:[0-9]+: warning: Member AT86RF2XX_DEFAULT_PAGE \(macro definition\) of group drivers_at86rf2xx is not documented\.
 drivers/include/at86rf2xx\.h:[0-9]+: warning: Member AT86RF2XX_MAX_CHANNEL \(macro definition\) of group drivers_at86rf2xx is not documented\.
 drivers/include/at86rf2xx\.h:[0-9]+: warning: Member AT86RF2XX_MIN_CHANNEL \(macro definition\) of group drivers_at86rf2xx is not documented\.
 drivers/include/bh1900nux\.h:[0-9]+: warning: Member BH1900NUX_REG_ADDR \(macro definition\) of group drivers_bh1900nux is not documented\.
@@ -12274,6 +12274,7 @@ sys/include/net/coap\.h:[0-9]+: warning: Member COAP_CODE_REQUEST_ENTITY_TOO_LAR
 sys/include/net/coap\.h:[0-9]+: warning: Member COAP_CODE_SERVICE_UNAVAILABLE \(macro definition\) of group net_coap is not documented\.
 sys/include/net/coap\.h:[0-9]+: warning: Member COAP_CODE_UNAUTHORIZED \(macro definition\) of group net_coap is not documented\.
 sys/include/net/coap\.h:[0-9]+: warning: Member COAP_CODE_UNPROCESSABLE_ENTITY \(macro definition\) of group net_coap is not documented\.
+sys/include/net/coap\.h:[0-9]+: warning: Member COAP_CODE_TOO_MANY_REQUESTS \(macro definition\) of group net_coap is not documented\.
 sys/include/net/coap\.h:[0-9]+: warning: Member COAP_CODE_UNSUPPORTED_CONTENT_FORMAT \(macro definition\) of group net_coap is not documented\.
 sys/include/net/coap\.h:[0-9]+: warning: Member COAP_CODE_VALID \(macro definition\) of group net_coap is not documented\.
 sys/include/net/coap\.h:[0-9]+: warning: Member COAP_DEFAULT_LEISURE \(macro definition\) of group net_coap is not documented\.

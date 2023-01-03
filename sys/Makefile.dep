@@ -188,6 +188,7 @@ ifneq (,$(filter netdev_ieee802154_submac,$(USEMODULE)))
   USEMODULE += netdev_legacy_api
   USEMODULE += ieee802154
   USEMODULE += ieee802154_submac
+  USEMODULE += ztimer_usec
 endif
 
 ifneq (,$(filter uhcpc,$(USEMODULE)))
@@ -231,7 +232,7 @@ ifneq (,$(filter ipv6_hdr,$(USEMODULE)))
 endif
 
 ifneq (,$(filter ieee802154_submac,$(USEMODULE)))
-  USEMODULE += xtimer
+  USEMODULE += ztimer_usec
   USEMODULE += random
 endif
 
@@ -1004,6 +1005,10 @@ endif
 
 ifneq (,$(filter auto_init%,$(USEMODULE)))
   USEMODULE += preprocessor_successor
+endif
+
+ifneq (,$(filter uri_parser,$(USEMODULE)))
+  USEMODULE += fmt
 endif
 
 include $(RIOTBASE)/sys/test_utils/Makefile.dep
