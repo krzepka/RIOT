@@ -119,6 +119,7 @@ static void ztimer_mock_op_cancel(ztimer_clock_t *clock)
     self->armed = 0;
 }
 
+#if MODULE_ZTIMER_ONDEMAND
 static void ztimer_mock_op_start(ztimer_clock_t *clock)
 {
     ztimer_mock_t *self = (ztimer_mock_t *)clock;
@@ -138,6 +139,7 @@ static void ztimer_mock_op_stop(ztimer_clock_t *clock)
     DEBUG("zmock_stop: %3u\n", self->calls.stop);
     self->running = 0;
 }
+#endif
 
 static const ztimer_ops_t ztimer_mock_ops = {
     .set = ztimer_mock_op_set,
@@ -163,7 +165,7 @@ void ztimer_mock_init(ztimer_mock_t *self, unsigned width)
     self->running = 1;
 #endif
 
-    DEBUG("zmock_init: %p width=%u mask=0x%08" PRIx32 " runnnig=%u\n", (void *)self, width,
+    DEBUG("zmock_init: %p width=%u mask=0x%08" PRIx32 " running=%u\n", (void *)self, width,
           self->mask, self->running);
     if (max_value < UINT32_MAX) {
         self->super.ops->set(&self->super, self->super.max_value >> 1);

@@ -31,6 +31,11 @@ extern "C" {
  */
 #define COAP_PORT               (5683)
 
+/**
+ * @brief   Default CoAP DTLS port
+ */
+#define COAPS_PORT              (5684)
+
 #define COAP_V1                 (1)     /**< Identifier for CoAP version 1 (RFC 7252) */
 
 /**
@@ -250,6 +255,14 @@ extern "C" {
  */
 #ifndef CONFIG_COAP_RANDOM_FACTOR_1000
 #define CONFIG_COAP_RANDOM_FACTOR_1000      (1500)
+#endif
+
+/**
+ * @brief    Timeout in milliseconds for a separate (deferred) response
+ *           sent after an empty ACK.
+ */
+#ifndef CONFIG_COAP_SEPARATE_RESPONSE_TIMEOUT_MS
+#define CONFIG_COAP_SEPARATE_RESPONSE_TIMEOUT_MS    (10 * MS_PER_SEC)
 #endif
 
 /** @brief   Maximum number of retransmissions for a confirmable request */
